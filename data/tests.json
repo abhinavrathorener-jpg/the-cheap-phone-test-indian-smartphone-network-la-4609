@@ -1,0 +1,243 @@
+[
+  {
+    "id": "test-1793450254926",
+    "url": "https://m.flipkart.com",
+    "timestamp": "2026-10-31T12:37:34.926Z",
+    "siteTitle": "Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books &amp; More. Best Offers!",
+    "statusCode": 200,
+    "deviceProfile": {
+      "id": "jiophone-next",
+      "name": "JioPhone Next (2GB RAM)",
+      "chipset": "Unisoc SC9863A (28nm)",
+      "ram": "2GB LPDDR3",
+      "screen": "360x720 css px",
+      "os": "Android 11 Go",
+      "cpuThrottlingMultiplier": 5.5
+    },
+    "networkProfile": {
+      "id": "unstable-4g",
+      "name": "Unstable / Congested 4G",
+      "speedKbps": 1200,
+      "rtt": 420,
+      "packetLoss": 5
+    },
+    "overallScore": 12,
+    "loadTimeMs": 82844,
+    "metrics": {
+      "ttfb": 2273,
+      "fcp": 4816,
+      "lcp": 55979,
+      "tbt": 6500,
+      "cls": 0.22,
+      "speedIndex": 43188,
+      "domNodes": 2270,
+      "totalWeightKb": 10730,
+      "jsWeightKb": 2185,
+      "imageWeightKb": 7020,
+      "cssWeightKb": 200,
+      "memoryPeakMb": 320,
+      "assetsBreakdown": {
+        "scripts": 23,
+        "styles": 5,
+        "images": 54,
+        "forms": 0,
+        "buttons": 3,
+        "inputs": 0
+      }
+    },
+    "issues": [
+      {
+        "id": "iss-heavy-js",
+        "title": "2.1MB JavaScript Overloads JioPhone Next (2GB RAM)",
+        "category": "Performance & Memory",
+        "severity": "Critical",
+        "impactScore": 92,
+        "affectedUsersPct": 72,
+        "description": "V8 script parsing and AST compilation takes 6.5s on Unisoc SC9863A (28nm). Triggers severe UI jank and touch lag.",
+        "solution": "Code-split React/Vue routes, defer non-essential bundles, and use modern tree-shaken ESM."
+      },
+      {
+        "id": "iss-heavy-images",
+        "title": "Uncompressed Images (6.9MB) Choke Unstable / Congested 4G",
+        "category": "Network & Bandwidth",
+        "severity": "High",
+        "impactScore": 86,
+        "affectedUsersPct": 65,
+        "description": "Images take 78.0s to stream across high packet-loss cellular cells, exhausting monthly data caps for prepaid users.",
+        "solution": "Serve modern WebP/AVIF images with srcset and loading=\"lazy\". Set fetchpriority=\"high\" only on LCP hero."
+      },
+      {
+        "id": "iss-form-touch",
+        "title": "Small Touch Targets & Missing OTP Autofill",
+        "category": "Forms & Conversion",
+        "severity": "Medium",
+        "impactScore": 74,
+        "affectedUsersPct": 61,
+        "description": "Primary action buttons under 48x48px cause mis-taps on small 5.4\" screens. Phone and OTP inputs lack autocomplete=\"one-time-code\".",
+        "solution": "Set min-height: 48px on buttons, and inputmode=\"numeric\" autocomplete=\"one-time-code\" on verification fields."
+      },
+      {
+        "id": "iss-ram-kill",
+        "title": "Peak Memory (320MB) Risks Android Low Memory Killer (LMK)",
+        "category": "RAM & Device Stability",
+        "severity": "High",
+        "impactScore": 80,
+        "affectedUsersPct": 53,
+        "description": "On 2GB RAM budget phones with background WhatsApp and UPI apps, browsers killing foreground tabs with >150MB heap.",
+        "solution": "Virtualize long DOM lists, destroy offscreen observers, and compress asset textures."
+      }
+    ],
+    "aiSummary": {
+      "verdict": "Critical Failure on Indian Smartphone Ecosystem: Unusable on sub-₹8,000 devices.",
+      "keyFinding": "LCP of 56.0s on Unstable / Congested 4G risks losing ~78% of budget mobile visitors."
+    }
+  },
+  {
+    "id": "test-in-001",
+    "url": "https://ecommerce-sample.in/checkout",
+    "timestamp": "2026-10-31T09:37:18.379Z",
+    "siteTitle": "Bharat Bazaar - Online Grocery & Superstore",
+    "deviceProfile": {
+      "id": "jiophone-next",
+      "name": "JioPhone Next (2GB RAM)",
+      "chipset": "Unisoc SC9863A (28nm)",
+      "ram": "2GB LPDDR3",
+      "screen": "360x720 css px (720x1440 physical)",
+      "os": "Android 11 Go (Pragati OS)",
+      "cpuThrottling": "6x Slowdown"
+    },
+    "networkProfile": {
+      "id": "slow-2g",
+      "name": "Slow 2G (Edge)",
+      "speed": "56 kbps",
+      "rtt": 1850,
+      "packetLoss": 14.5
+    },
+    "overallScore": 38,
+    "loadTimeMs": 14200,
+    "metrics": {
+      "ttfb": 2150,
+      "fcp": 6400,
+      "lcp": 13800,
+      "tbt": 3420,
+      "cls": 0.28,
+      "speedIndex": 11200,
+      "domNodes": 2450,
+      "totalWeightKb": 4890,
+      "jsWeightKb": 2180,
+      "imageWeightKb": 2210,
+      "cssWeightKb": 340,
+      "memoryPeakMb": 178
+    },
+    "issues": [
+      {
+        "id": "iss-1",
+        "title": "2.1MB Uncompressed JS Freezes Unisoc Chipset for 3.4s",
+        "category": "Performance & Memory",
+        "severity": "Critical",
+        "impactScore": 94,
+        "affectedUsersPct": 68,
+        "description": "Synchronous bundle parsing consumes 178MB RAM, triggering Android OS Low Memory Killer (LMK) garbage collection thrashing.",
+        "solution": "Split vendor bundles with dynamic import() and replace heavy Moment.js with lightweight date-fns."
+      },
+      {
+        "id": "iss-2",
+        "title": "UPI Payment & OTP Input Missing \"inputmode=numeric\"",
+        "category": "Forms & UX",
+        "severity": "Critical",
+        "impactScore": 91,
+        "affectedUsersPct": 82,
+        "description": "Numeric keypad is not automatically summoned on Gboard Go edition, causing 34% drop-off in OTP verification on Indian devices.",
+        "solution": "Add inputmode=\"numeric\" pattern=\"[0-9]*\" and autocomplete=\"one-time-code\" to OTP and Phone fields."
+      },
+      {
+        "id": "iss-3",
+        "title": "Hero Banner Image (1.8MB JPEG) Fails on 2G Timeout",
+        "category": "Network & Assets",
+        "severity": "High",
+        "impactScore": 82,
+        "affectedUsersPct": 54,
+        "description": "Uncompressed desktop hero banner takes 48 seconds to load on Slow 2G (Edge) and causes cumulative layout shift (CLS: 0.28).",
+        "solution": "Convert to responsive WebP/AVIF format with srcset and explicit width/height tags."
+      },
+      {
+        "id": "iss-4",
+        "title": "Horizontal Overflow on 360px Viewport",
+        "category": "Responsiveness",
+        "severity": "Medium",
+        "impactScore": 68,
+        "affectedUsersPct": 45,
+        "description": "Fixed-width table (420px) causes horizontal scrolling and obscures the primary \"Proceed to Pay\" button.",
+        "solution": "Use overflow-x-auto on wrapper containers and set max-width: 100% on elements."
+      }
+    ],
+    "aiSummary": {
+      "verdict": "Severely degraded experience on Indian budget devices. High cart abandonment risk in Tier-2/Tier-3 cities.",
+      "keyFinding": "Site fails the 5-second Indian Mobile Attention Rule; over 68% of budget Android users will experience UI freezes during payment."
+    }
+  },
+  {
+    "id": "test-in-002",
+    "url": "https://news-portal.in",
+    "timestamp": "2026-10-30T18:37:18.380Z",
+    "siteTitle": "Dainik Samachar - Live Hindi & English News",
+    "deviceProfile": {
+      "id": "redmi-9a",
+      "name": "Xiaomi Redmi 9A (2GB RAM)",
+      "chipset": "MediaTek Helio G25",
+      "ram": "2GB LPDDR4X",
+      "screen": "360x800 css px",
+      "os": "Android 10 (MIUI 12)",
+      "cpuThrottling": "4x Slowdown"
+    },
+    "networkProfile": {
+      "id": "rural-3g",
+      "name": "Tier-3 Rural 3G (HSPA)",
+      "speed": "450 kbps",
+      "rtt": 780,
+      "packetLoss": 6.2
+    },
+    "overallScore": 62,
+    "loadTimeMs": 7600,
+    "metrics": {
+      "ttfb": 920,
+      "fcp": 2800,
+      "lcp": 6400,
+      "tbt": 1120,
+      "cls": 0.14,
+      "speedIndex": 5900,
+      "domNodes": 1850,
+      "totalWeightKb": 2480,
+      "jsWeightKb": 940,
+      "imageWeightKb": 1240,
+      "cssWeightKb": 180,
+      "memoryPeakMb": 112
+    },
+    "issues": [
+      {
+        "id": "iss-201",
+        "title": "3 Ad SDKs Execute Concurrently on Helio G25 Core",
+        "category": "Performance & Memory",
+        "severity": "High",
+        "impactScore": 78,
+        "affectedUsersPct": 58,
+        "description": "Third-party tracking scripts block user scrolling for 1.1s on 4x throttled MediaTek CPU.",
+        "solution": "Defer non-critical ad scripts using Partytown or requestIdleCallback."
+      },
+      {
+        "id": "iss-202",
+        "title": "Hindi Devanagari Font Flash (FOIT) Blocks Text for 4s",
+        "category": "Typography & Network",
+        "severity": "Medium",
+        "impactScore": 64,
+        "affectedUsersPct": 70,
+        "description": "Custom 450KB Devanagari font does not specify font-display: swap, rendering invisible text during 3G packet delay.",
+        "solution": "Apply font-display: swap and subset Unicode range U+0900-U+097F."
+      }
+    ],
+    "aiSummary": {
+      "verdict": "Moderate usability. Reading experience is delayed by ad script contention and un-optimized Hindi web fonts.",
+      "keyFinding": "Enabling font-display: swap and lazy-loading ads would boost user retention in non-metro regions by 32%."
+    }
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "name": "The Cheap Phone Test - Indian Smartphone & Network Lab",
+  "description": "Automated testing platform that evaluates web applications under real-world Indian smartphone & network conditions (budget devices, 1-2GB RAM, 2G/3G/unstable 4G, high latency) with AI user-impact ranking and remediation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
